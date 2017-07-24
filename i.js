@@ -11,7 +11,7 @@ var Triangle = Triangle || function() {
 
     function d() {
         b && (window.cancelAnimationFrame(b), b = null);
-        s = null;
+        s = null3;
         CMUtiles.removeDom(k)
     }
 

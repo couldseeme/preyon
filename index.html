@@ -16,9 +16,11 @@
           z-index: 1;
         }
         img {
-          position: absolute;
+          position: relative;
            z-index: 0;
            transform: scale(0.74, 0.74);
+           width: 100%;
+           height: 100%;
         }
         .button {
           position: relative;
@@ -29,11 +31,13 @@
         .img-container {
             display: flex;
            justify-content: center;
+           width: 100%;
+           height: 100%;
         }
         html, body {
 
             overflow: hidden;
-           
+
 
             cursor: ns-resize;
 
@@ -45,7 +49,7 @@
     <div class="button">
     <canvas id="myCanvas" width="800" height="800"></canvas>
     <div class="img-container">
-    <img id="img" src="https://farm9.staticflickr.com/8627/16419583242_bec24cb6a2.jpg" />
+    <img id="img" src="https://i1.sndcdn.com/artworks-000210140257-8eel9e-t500x500.jpg" />
     </div>
     </div>
     <script type="text/javascript" src="js/signals.min.js"></script>
@@ -56,7 +60,7 @@
 
     <script>
     var handle = 0;
-    
+
     var c=document.getElementById('myCanvas');
     var ctx=c.getContext('2d');
     var size = 300;
@@ -64,11 +68,11 @@
     c.height = size;
     var v = 0;
     var off = 70;
-    var q = 20;
+    var q = 10;
     var OFFSET = 70;
     var ratio = 3.2;
     var img = document.getElementById('img')
-   
+
     var r=[
       {
         x: 0+off,
@@ -180,24 +184,33 @@
           //ease: Elastic.easeOut.config(2, 0.3)
           ease: Bounce.easeOut
       });
+
+      TweenLite.to(img, 0.4, {
+            scale: 1.1,
+            rotation: 1,
+            ease: Bounce.easeOut
+      });
+
       }
 
-      
 
 
-      setTimeout(show2, 600);
 
-     
-      
+      setTimeout(show2, 300);
+
+
+
     }
     function show2() {
-      TweenLite.to(img, 0.9, {
-            scale: 1,
+
+      TweenLite.to(img, 0.7, {
+            scale: 1.2,
+            rotation: 0,
             ease: Elastic.easeOut.config(1.2, 1)
       });
 
       for (G = 0; 4 > G; G++) TweenLite.to(r[G], 0.4, {
-        
+
           x: g[G].x2,
           y: g[G].y2,
           v: 0,
@@ -206,7 +219,7 @@
       });
     }
     init();
-    window.addEventListener("click", show, false);    
+    window.addEventListener("click", show, false);
 
     </script>
 </body>
